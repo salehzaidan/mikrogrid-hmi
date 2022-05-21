@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
+import Card from '../components/Card'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
@@ -30,6 +31,10 @@ const Home: NextPage = () => {
               Wind Speed <span className="font-normal">6.54 km/h</span>
             </div>
           </div>
+        </section>
+
+        <section className="container mx-auto">
+          <Card type="grid" />
         </section>
       </main>
       <Footer />
