@@ -13,7 +13,25 @@ const Home: NextPage = () => {
       </Head>
 
       <Navbar />
-      <main className="grow"></main>
+      <main className="grow py-10 px-6">
+        <section className="container mx-auto">
+          <h2 className="mb-2 text-xl font-medium">Weather</h2>
+          <div>
+            <div className="font-medium">
+              Irradiance{' '}
+              <span className="font-normal">
+                1.57 W/m<sup>2</sup>
+              </span>
+            </div>
+            <div className="font-medium">
+              Temperature <span className="font-normal">20.4 &deg;C</span>
+            </div>
+            <div className="font-medium">
+              Wind Speed <span className="font-normal">6.54 km/h</span>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   )
