@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Navbar />
-      <main className="grow py-10 px-6">
+      <main className="grow overflow-x-auto py-10 px-6">
         <section className="container mx-auto">
           <h2 className="mb-2 text-xl font-medium">Weather</h2>
           <div>
@@ -34,19 +34,31 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="container mx-auto flex">
-          <Cell lines={['top', 'bottom']}>
-            <Card type="grid" />
-          </Cell>
-          <Cell lines={['right']}>
-            <Card type="battery" />
-          </Cell>
-          <Cell lines={['bottom']}>
-            <Card type="load" />
-          </Cell>
-          <Cell lines={['left']}>
-            <Card type="pv" />
-          </Cell>
+        <section className="container mx-auto">
+          <div className="flex justify-center">
+            <Cell />
+            <Cell />
+            <Cell />
+            <Cell lines={['bottom']}>
+              <Card type="pv" />
+            </Cell>
+            <Cell />
+            <Cell />
+          </div>
+          <div className="flex justify-center">
+            <Cell lines={['right']}>
+              <Card type="grid" />
+            </Cell>
+            <Cell lines={['left', 'right']} />
+            <Cell lines={['left', 'right']}>
+              <Card type="battery" />
+            </Cell>
+            <Cell lines={['top', 'left', 'right']} />
+            <Cell lines={['left', 'right']} />
+            <Cell lines={['left']}>
+              <Card type="load" />
+            </Cell>
+          </div>
         </section>
       </main>
       <Footer />
