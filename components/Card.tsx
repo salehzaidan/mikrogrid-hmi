@@ -20,11 +20,13 @@ type CardProps = {
 
 function Card({ type }: CardProps) {
   return (
-    <article className="w-fit">
-      <h3 className="text-center text-xl font-medium">{LABEL[type]}</h3>
+    <article className="relative w-fit">
+      <h3 className="absolute inset-x-0 -top-1/4 text-center text-xl font-medium">
+        {LABEL[type]}
+      </h3>
       <Icon
         icon={ICON[type]}
-        className="mx-auto mt-1 h-32 w-32 rounded-2xl border-2 border-gray-300 bg-gray-100 p-4 text-blue-600"
+        className="mx-auto h-32 w-32 rounded-2xl border-2 border-gray-300 bg-gray-100 p-4 text-blue-600"
       />
     </article>
   )

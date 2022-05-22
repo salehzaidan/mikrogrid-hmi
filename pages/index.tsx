@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import Card from '../components/Card'
+import Cell from '../components/Cell'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
@@ -33,8 +34,19 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="container mx-auto">
-          <Card type="grid" />
+        <section className="container mx-auto flex">
+          <Cell line="top">
+            <Card type="grid" />
+          </Cell>
+          <Cell line="right">
+            <Card type="battery" />
+          </Cell>
+          <Cell line="bottom">
+            <Card type="load" />
+          </Cell>
+          <Cell line="left">
+            <Card type="pv" />
+          </Cell>
         </section>
       </main>
       <Footer />
