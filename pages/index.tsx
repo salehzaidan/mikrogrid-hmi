@@ -35,16 +35,16 @@ const Home: NextPage = () => {
         </section>
 
         <section className="container mx-auto flex">
-          <Cell line="top">
+          <Cell lines={['top', 'bottom']}>
             <Card type="grid" />
           </Cell>
-          <Cell line="right">
+          <Cell lines={['right']}>
             <Card type="battery" />
           </Cell>
-          <Cell line="bottom">
+          <Cell lines={['bottom']}>
             <Card type="load" />
           </Cell>
-          <Cell line="left">
+          <Cell lines={['left']}>
             <Card type="pv" />
           </Cell>
         </section>
