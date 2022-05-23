@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         </section>
 
         <section className="container mx-auto">
-          <div className="flex justify-center">
+          <div className="mx-auto grid w-fit grid-cols-[repeat(6,_1fr)]">
             <Cell />
             <Cell />
             <Cell />
@@ -44,8 +44,7 @@ const Home: NextPage = () => {
             </Cell>
             <Cell />
             <Cell />
-          </div>
-          <div className="flex justify-center">
+
             <Cell lines={['right']}>
               <Card type="grid" />
             </Cell>
