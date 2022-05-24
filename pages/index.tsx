@@ -19,20 +19,14 @@ const Home: NextPage = () => {
       <main className="grow overflow-x-auto py-10 px-6">
         <section className="container mx-auto">
           <h2 className="mb-2 text-xl font-medium">Weather</h2>
-          <div>
-            <div className="font-medium">
-              Irradiance{' '}
-              <span className="font-normal">
-                1.57 W/m<sup>2</sup>
-              </span>
-            </div>
-            <div className="font-medium">
-              Temperature <span className="font-normal">20.4 &deg;C</span>
-            </div>
-            <div className="font-medium">
-              Wind Speed <span className="font-normal">6.54 km/h</span>
-            </div>
-          </div>
+          <Detail
+            variables={{
+              'Irradiance': '1.57 W/m<sup>2</sup>', // prettier-ignore
+              'Temperature': '20.4 &deg;C', // prettier-ignore
+              'Wind Speed': '6.54 km/h',
+            }}
+            className="w-44"
+          />
         </section>
 
         <section className="container mx-auto">
