@@ -11,14 +11,17 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Head>
-        <title>Sistem Mikrogrid - Lab Manajemen Energi Teknik Fisika ITB</title>
+        <title>
+          Microgrid Digital Twin - Lab. Energy Management, Engineering Physics,
+          ITB
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />
       <main className="grow overflow-x-auto py-10 px-6">
         <section className="container mx-auto">
-          <h2 className="mb-2 text-xl font-medium">Weather</h2>
+          <h2 className="mb-2 text-xl font-medium">Weather Station</h2>
           <Detail
             variables={{
               'Irradiance': '1.57 W/m<sup>2</sup>', // prettier-ignore
