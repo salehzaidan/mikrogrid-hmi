@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { classNames } from '../lib/utils'
+
 type DetailProps = {
   variables: { [key: string]: string }
   header?: string
@@ -8,7 +10,12 @@ type DetailProps = {
 
 function Detail({ variables, header, className }: DetailProps) {
   return (
-    <div className={`grid grid-cols-[auto_auto] gap-x-2 ${className}`}>
+    <div
+      className={classNames([
+        'grid grid-cols-[auto_auto] gap-x-2',
+        className ?? '',
+      ])}
+    >
       {header && (
         <h3 className="col-span-2 mb-1 text-center font-medium">{header}</h3>
       )}

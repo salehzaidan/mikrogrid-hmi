@@ -1,3 +1,5 @@
+import { classNames } from '../lib/utils'
+
 type CellProps = {
   lines?: ('top' | 'right' | 'bottom' | 'left')[]
   className?: string
@@ -10,7 +12,10 @@ function Cell({
 }: React.PropsWithChildren<CellProps>) {
   return (
     <div
-      className={`relative flex h-48 w-48 shrink-0 items-center justify-center ${className}`}
+      className={classNames([
+        'relative flex h-48 w-48 shrink-0 items-center justify-center',
+        className ?? '',
+      ])}
     >
       {lines?.map((line, index) => {
         switch (line) {
