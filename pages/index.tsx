@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useEffect } from 'react'
+import { useFetch } from 'usehooks-ts'
 
 import Card from '../components/Card'
 import Cell from '../components/Cell'
@@ -7,8 +9,16 @@ import Detail from '../components/Detail'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import WeatherStation from '../components/WeatherStation'
+import type { Data } from '../lib/variables'
 
 const Home: NextPage = () => {
+  const { data, error } = useFetch<Data>(process.env.NEXT_PUBLIC_API_URL)
+
+  useEffect(() => {
+    console.log('data:', data)
+    console.log('error:', error)
+  }, [data, error])
+
   return (
     <div className="flex min-h-screen flex-col">
       <Head>
@@ -40,7 +50,6 @@ const Home: NextPage = () => {
                 }}
               />
             </Cell>
-
             <Cell />
 
             <Cell lines={['right']}>
