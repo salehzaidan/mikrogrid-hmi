@@ -1,10 +1,17 @@
 type CellProps = {
   lines?: ('top' | 'right' | 'bottom' | 'left')[]
+  className?: string
 }
 
-function Cell({ lines, children }: React.PropsWithChildren<CellProps>) {
+function Cell({
+  lines,
+  className,
+  children,
+}: React.PropsWithChildren<CellProps>) {
   return (
-    <div className="relative flex h-48 w-48 shrink-0 items-center justify-center">
+    <div
+      className={`relative flex h-48 w-48 shrink-0 items-center justify-center ${className}`}
+    >
       {lines?.map((line, index) => {
         switch (line) {
           case 'top':

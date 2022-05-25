@@ -31,10 +31,12 @@ const Home: NextPage = () => {
             <Cell>
               <Detail
                 variables={{
-                  'Total Voltage': '23 V',
-                  'Total Current': '4 A',
-                  'Side Power': '64 W',
-                  'Power Output': '58 W',
+                  'V<sub>dc</sub>': '354.9 V',
+                  'I<sub>dc</sub>': '10.35 A',
+                  'V<sub>ac</sub>': '234.9 V',
+                  'I<sub>ac</sub>': '9.17 A',
+                  'Frequency': '49.98 Hz', // prettier-ignore
+                  'P<sub>ac</sub>': '0.25 kW',
                 }}
               />
             </Cell>
@@ -57,9 +59,37 @@ const Home: NextPage = () => {
             <Cell>
               <Detail
                 variables={{
-                  'Active Power': '120 W',
-                  'Reactive Power': '15 VAR',
+                  'Voltage': '234.9 V', // prettier-ignore
+                  'Current': '17.15 A', // prettier-ignore
+                  'Frequency': '49.98 Hz', // prettier-ignore
+                  'P. Active': '0.5 kW',
+                  'P. Reactive': '0.25 kVar',
                 }}
+                className="self-start"
+              />
+            </Cell>
+            <Cell />
+            <Cell className="-translate-x-1/2">
+              <Detail
+                variables={{
+                  'Tot. Voltage': '52.20 V',
+                  'Est. SoC': '70.20 %',
+                  'Meas. SoC': '69.80 %',
+                  'Current': '-0.50 A', // prettier-ignore
+                  'Max Temp.': '25.1 &deg;C',
+                }}
+                header="DC Side"
+                className="self-start"
+              />
+            </Cell>
+            <Cell className="-translate-x-1/2">
+              <Detail
+                variables={{
+                  'Volt. Output': '234.9 V',
+                  'Curr. Output': '17.15 A',
+                  'Frequency': '49.98 Hz', // prettier-ignore
+                }}
+                header="AC Side"
                 className="self-start"
               />
             </Cell>
@@ -67,21 +97,10 @@ const Home: NextPage = () => {
             <Cell>
               <Detail
                 variables={{
-                  'State of Charge': '69%',
-                  'Total Voltage': '46 V',
-                  'Max Temperature': '25 &deg;C',
-                  'Power': '65 W', // prettier-ignore
-                }}
-                className="self-start"
-              />
-            </Cell>
-            <Cell />
-            <Cell />
-            <Cell>
-              <Detail
-                variables={{
-                  'Active Power': '450 W',
-                  'Reactive Power': '20 VAR',
+                  'Voltage': '234.9 V', // prettier-ignore
+                  'Current': '17.15 A', // prettier-ignore
+                  'PF': '0.96', // prettier-ignore
+                  'Frequency': '49.98 Hz', // prettier-ignore
                 }}
                 className="self-start"
               />
