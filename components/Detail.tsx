@@ -1,14 +1,16 @@
 import React from 'react'
 
-import { classNames } from '../lib/utils'
+import { classNames, displayVariable } from '../lib/utils'
+import type { Label } from '../lib/variables'
 
 type DetailProps = {
-  variables: { [key: string]: string }
+  data: { [key: string]: number }
+  label: { [key: string]: Label }
   header?: string
   className?: string
 }
 
-function Detail({ variables, header, className }: DetailProps) {
+function Detail({ data, label, header, className }: DetailProps) {
   return (
     <div
       className={classNames([
@@ -19,13 +21,17 @@ function Detail({ variables, header, className }: DetailProps) {
       {header && (
         <h3 className="col-span-2 mb-1 text-center font-medium">{header}</h3>
       )}
-      {Object.entries(variables).map(([key, value], index) => (
+      {Object.entries(data).map(([key, value], index) => (
         <React.Fragment key={index}>
           <div
-            dangerouslySetInnerHTML={{ __html: key }}
+            dangerouslySetInnerHTML={{ __html: label[key].name }}
             className="font-medium"
           />
-          <div dangerouslySetInnerHTML={{ __html: value }} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: displayVariable(value, label[key].unit),
+            }}
+          />
         </React.Fragment>
       ))}
     </div>
