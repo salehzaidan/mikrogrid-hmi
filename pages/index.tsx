@@ -6,6 +6,7 @@ import Cell from '../components/Cell'
 import Detail from '../components/Detail'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import WeatherStation from '../components/WeatherStation'
 
 const Home: NextPage = () => {
   return (
@@ -21,21 +22,8 @@ const Home: NextPage = () => {
       <Navbar />
       <main className="grow overflow-x-auto py-10 px-6">
         <section className="container mx-auto">
-          <h2 className="mb-2 text-xl font-medium">Weather Station</h2>
-          <Detail
-            variables={{
-              'Irradiance': '1.57 W/m<sup>2</sup>', // prettier-ignore
-              'Temperature': '20.4 &deg;C', // prettier-ignore
-              'Wind Speed': '6.54 km/h',
-            }}
-            className="w-44"
-          />
-        </section>
-
-        <section className="container mx-auto">
           <div className="mx-auto grid w-fit grid-cols-[repeat(6,_1fr)]">
-            <Cell />
-            <Cell />
+            <WeatherStation />
             <Cell />
             <Cell lines={['bottom']}>
               <Card type="pv" />
@@ -50,6 +38,7 @@ const Home: NextPage = () => {
                 }}
               />
             </Cell>
+
             <Cell />
 
             <Cell lines={['right']}>

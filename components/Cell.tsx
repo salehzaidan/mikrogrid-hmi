@@ -4,7 +4,7 @@ type CellProps = {
 
 function Cell({ lines, children }: React.PropsWithChildren<CellProps>) {
   return (
-    <div className="relative flex h-44 w-44 shrink-0 items-center justify-center">
+    <div className="relative flex h-48 w-48 shrink-0 items-center justify-center">
       {lines?.map((line, index) => {
         switch (line) {
           case 'top':
