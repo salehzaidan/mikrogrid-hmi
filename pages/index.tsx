@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           {error && <p>Data could not be loaded</p>}
           {data && (
             <section className="container mx-auto">
-              <div className="mx-auto grid w-fit grid-cols-[repeat(7,_1fr)]">
+              <div className="mx-auto grid w-fit grid-cols-[repeat(7,_160px)]">
                 {/* Row 1 */}
                 <WeatherStation data={data.weather_station} />
                 <Cell>

@@ -13,7 +13,7 @@ function Cell({
   return (
     <div
       className={classNames([
-        'relative flex h-48 w-48 shrink-0 items-center justify-center',
+        'relative flex h-48 w-40 shrink-0 items-center justify-center',
         className ?? '',
       ])}
     >
