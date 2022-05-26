@@ -4,6 +4,7 @@ import { useFetch } from 'usehooks-ts'
 
 import Card from '../components/Card'
 import Cell from '../components/Cell'
+import CustomLineChart from '../components/CustomLineChart'
 import Detail from '../components/Detail'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -37,12 +38,9 @@ const Home: NextPage = () => {
           {error && <p>Data could not be loaded</p>}
           {data && (
             <section className="container mx-auto">
-              <div className="mx-auto grid w-fit grid-cols-[repeat(6,_1fr)]">
+              <div className="mx-auto grid w-fit grid-cols-[repeat(7,_1fr)]">
+                {/* Row 1 */}
                 <WeatherStation data={data.weather_station} />
-                <Cell />
-                <Cell lines={['bottom']}>
-                  <Card type="pv" />
-                </Cell>
                 <Cell>
                   <Detail
                     data={{
@@ -56,21 +54,16 @@ const Home: NextPage = () => {
                     label={pvLabel}
                   />
                 </Cell>
-                <Cell />
+                <Cell lines={['bottom']}>
+                  <Card type="pv" />
+                </Cell>
+                <CustomLineChart
+                  data={data.pv.pv_production}
+                  label="PV Production"
+                  unit="kW"
+                />
 
-                <Cell lines={['right']}>
-                  <Card type="grid" />
-                </Cell>
-                <Cell lines={['left', 'right']} />
-                <Cell lines={['left', 'right']}>
-                  <Card type="battery" />
-                </Cell>
-                <Cell lines={['top', 'left', 'right']} />
-                <Cell lines={['left', 'right']} />
-                <Cell lines={['left']}>
-                  <Card type="load" />
-                </Cell>
-
+                {/* Row 2 */}
                 <Cell>
                   <Detail
                     data={{
@@ -81,9 +74,33 @@ const Home: NextPage = () => {
                       preactive: data.grid.preactive,
                     }}
                     label={gridLabel}
-                    className="self-start"
                   />
                 </Cell>
+                <Cell lines={['right']}>
+                  <Card type="grid" />
+                </Cell>
+                <Cell lines={['left', 'right']}>
+                  <Card type="battery" />
+                </Cell>
+                <Cell lines={['top', 'left', 'right']} />
+                <Cell lines={['left', 'right']} />
+                <Cell lines={['left']}>
+                  <Card type="load" />
+                </Cell>
+                <Cell>
+                  <Detail
+                    data={{
+                      voltage: data.load.voltage,
+                      current: data.load.current,
+                      pf: data.load.pf,
+                      frequency: data.load.frequency,
+                    }}
+                    label={loadLabel}
+                  />
+                </Cell>
+
+                {/* Row 3 */}
+                <Cell />
                 <Cell />
                 <Cell className="-translate-x-1/2">
                   <Detail
@@ -111,19 +128,11 @@ const Home: NextPage = () => {
                     className="self-start"
                   />
                 </Cell>
-                <Cell />
-                <Cell>
-                  <Detail
-                    data={{
-                      voltage: data.load.voltage,
-                      current: data.load.current,
-                      pf: data.load.pf,
-                      frequency: data.load.frequency,
-                    }}
-                    label={loadLabel}
-                    className="self-start"
-                  />
-                </Cell>
+                <CustomLineChart
+                  data={data.load.electricity_load}
+                  label="Electricity Load"
+                  unit="kW"
+                />
               </div>
             </section>
           )}

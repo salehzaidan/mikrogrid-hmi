@@ -9,3 +9,7 @@ export function displayVariable(value: number, unit?: string) {
   }
   return [value, separator].join('')
 }
+
+export function capitalize(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
