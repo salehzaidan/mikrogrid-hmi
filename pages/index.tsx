@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useQuery } from 'react-query'
 import { useFetch } from 'usehooks-ts'
 
 import Card from '../components/Card'
@@ -9,17 +10,13 @@ import Detail from '../components/Detail'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import WeatherStation from '../components/WeatherStation'
-import {
-  batteryLabel,
-  Data,
-  gridLabel,
-  loadLabel,
-  pvLabel,
-} from '../lib/variables'
+import { fetchData } from '../lib/utils'
+import { batteryLabel, gridLabel, loadLabel, pvLabel } from '../lib/variables'
 
 const Home: NextPage = () => {
-  const { data, error } = useFetch<Data>(process.env.NEXT_PUBLIC_API_URL)
-  const loading = !data && !error
+  const { data, status } = useQuery('data', fetchData, {
+    refetchInterval: Number(process.env.NEXT_PUBLIC_REFETCH_INTERVAL || 60000),
+  })
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -34,8 +31,8 @@ const Home: NextPage = () => {
       <Navbar />
       {
         <main className="grow overflow-x-auto py-10 px-6">
-          {loading && <p>Loading...</p>}
-          {error && <p>Data could not be loaded</p>}
+          {status === 'loading' && <p>Loading...</p>}
+          {status === 'error' && <p>Data could not be loaded</p>}
           {data && (
             <section className="container mx-auto">
               <div className="mx-auto grid w-fit grid-cols-[repeat(7,_160px)]">
