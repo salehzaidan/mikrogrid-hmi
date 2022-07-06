@@ -60,6 +60,7 @@ const Home: NextPage = () => {
                   data={data.pv.pv_production}
                   label="PV Production"
                   unit="kW"
+                  domain={[0, 'auto']}
                 />
 
                 {/* Row 2 */}
@@ -105,6 +106,7 @@ const Home: NextPage = () => {
                   data={data.battery.soc_data}
                   label="SoC"
                   unit="%"
+                  domain={[0, 100]}
                 />
                 <Cell />
                 <Cell className="-translate-x-1/2">
@@ -139,6 +141,7 @@ const Home: NextPage = () => {
                   data={data.load.electricity_load}
                   label="Electricity Load"
                   unit="kW"
+                  domain={[0, 'auto']}
                 />
               </div>
             </section>

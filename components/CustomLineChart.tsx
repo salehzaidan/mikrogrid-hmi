@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import type { AxisDomain } from 'recharts/types/util/types'
 
 import { capitalize } from '../lib/utils'
 
@@ -21,9 +22,10 @@ type CustomLineChartProps = {
   }[]
   label: string
   unit?: string
+  domain?: AxisDomain
 }
 
-function CustomLineChart({ data, label, unit }: CustomLineChartProps) {
+function CustomLineChart({ data, label, unit, domain }: CustomLineChartProps) {
   return (
     <ResponsiveContainer className="col-span-3">
       <LineChart data={data}>
@@ -33,7 +35,7 @@ function CustomLineChart({ data, label, unit }: CustomLineChartProps) {
           domain={['dataMin', 'dataMax']}
           tickFormatter={(value) => format(new Date(value), 'HH:mm')}
         />
-        <YAxis interval="preserveStartEnd" domain={['auto', 'auto']}>
+        <YAxis interval="preserveStartEnd" domain={domain}>
           <Label
             value={label + (unit ? ` (${unit})` : '')}
             position="insideTopLeft"
