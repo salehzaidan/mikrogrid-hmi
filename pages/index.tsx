@@ -35,9 +35,11 @@ const Home: NextPage = () => {
           {status === 'error' && <p>Data could not be loaded</p>}
           {data && (
             <section className="container mx-auto">
-              <div className="mx-auto grid w-fit grid-cols-[repeat(7,_160px)]">
+              <div className="mx-auto grid w-fit grid-cols-[repeat(9,_160px)]">
                 {/* Row 1 */}
+                <Cell />
                 <WeatherStation data={data.weather_station} />
+                <Cell />
                 <Cell>
                   <Detail
                     data={{
@@ -61,6 +63,7 @@ const Home: NextPage = () => {
                 />
 
                 {/* Row 2 */}
+                <Cell />
                 <Cell>
                   <Detail
                     data={{
@@ -76,6 +79,7 @@ const Home: NextPage = () => {
                 <Cell lines={['right']}>
                   <Card type="grid" />
                 </Cell>
+                <Cell lines={['left', 'right']} />
                 <Cell lines={['left', 'right']}>
                   <Card type="battery" />
                 </Cell>
@@ -97,7 +101,11 @@ const Home: NextPage = () => {
                 </Cell>
 
                 {/* Row 3 */}
-                <Cell />
+                <CustomLineChart
+                  data={data.load.electricity_load}
+                  label="Electricity Load"
+                  unit="kW"
+                />
                 <Cell />
                 <Cell className="-translate-x-1/2">
                   <Detail
