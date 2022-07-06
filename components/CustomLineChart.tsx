@@ -36,9 +36,9 @@ function CustomLineChart({ data, label, unit }: CustomLineChartProps) {
         <YAxis interval="preserveStartEnd" domain={['auto', 'auto']}>
           <Label
             value={label + (unit ? ` (${unit})` : '')}
-            position="top"
-            dy={-5}
-            dx={100}
+            position="insideTopLeft"
+            dy={-27}
+            dx={55}
             className="font-medium"
           />
         </YAxis>

@@ -102,9 +102,9 @@ const Home: NextPage = () => {
 
                 {/* Row 3 */}
                 <CustomLineChart
-                  data={data.load.electricity_load}
-                  label="Electricity Load"
-                  unit="kW"
+                  data={data.battery.soc_data}
+                  label="SoC"
+                  unit="%"
                 />
                 <Cell />
                 <Cell className="-translate-x-1/2">

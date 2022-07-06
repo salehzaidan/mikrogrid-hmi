@@ -7,6 +7,11 @@ export type BatteryData = {
   meas_soc: number
   pactive: number
   preactive: number
+  soc_data: {
+    estimated: number
+    measured: number
+    timestamp: string
+  }[]
   total_voltage: number
   volt_output: number
 }
