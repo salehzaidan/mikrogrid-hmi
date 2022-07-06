@@ -119,6 +119,8 @@ const Home: NextPage = () => {
                       volt_output: data.battery.volt_output,
                       current_output: data.battery.current_output,
                       frequency: data.battery.frequency,
+                      pactive: data.battery.pactive,
+                      preactive: data.battery.preactive,
                     }}
                     label={batteryLabel}
                     header="AC Side"

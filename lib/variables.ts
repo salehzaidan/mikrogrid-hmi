@@ -5,6 +5,8 @@ export type BatteryData = {
   frequency: number
   max_temp: number
   meas_soc: number
+  pactive: number
+  preactive: number
   total_voltage: number
   volt_output: number
 }
@@ -67,6 +69,8 @@ export const batteryLabel = {
   frequency: { name: 'Frequency', unit: 'Hz' },
   max_temp: { name: 'Max. Temp', unit: '&deg;C' },
   meas_soc: { name: 'Meas. SoC', unit: '%' },
+  pactive: { name: 'P. Active', unit: 'kW' },
+  preactive: { name: 'P. Reactive', unit: 'kVar' },
   total_voltage: { name: 'Tot. Voltage', unit: 'V' },
   volt_output: { name: 'Volt. Output', unit: 'V' },
 }
