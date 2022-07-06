@@ -47,6 +47,7 @@ export type WeatherStationData = {
   irradiance: number
   temperature: number
   wind_speed: number
+  humidity: number
 }
 
 export type Data = {
@@ -98,4 +99,5 @@ export const weatherStationLabel = {
   irradiance: { name: 'Irradiance', unit: 'W/m<sup>2</sup>' },
   temperature: { name: 'Temperature', unit: '&deg;C' },
   wind_speed: { name: 'Wind Speed', unit: 'mph' },
+  humidity: { name: 'Humidity', unit: '%' },
 }
